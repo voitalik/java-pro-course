@@ -1,17 +1,27 @@
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class Main {
     public static void main(String[] args) {
-        SinglyLinkedList list = new SinglyLinkedList();
+        Map<String, String> hm = new HashMap<>();
+        hm.put("B", "1");
+        hm.put("C", "2");
+        hm.put("A", "3");
 
-        list.add("Hello");
-        list.add("World");
-        list.add("Students");
-        list.add("!");
+        Map<String, String> lhm = new LinkedHashMap<>();
+        lhm.put("B", "1");
+        lhm.put("C", "2");
+        lhm.put("A", "3");
 
-        System.out.println(list);
-        System.out.println(list.get(0));
-        System.out.println(list.get(1));
-        System.out.println(list.get(2));
-        System.out.println(list.get(3));
-        System.out.println(list.get(4));
+        for (Map.Entry<String, String> entry : hm.entrySet()) {
+            System.out.print(entry.toString() + " | ");
+        }
+
+        System.out.println();
+
+        for (Map.Entry<String, String> entry : lhm.entrySet()) {
+            System.out.print(entry.toString() + " | ");
+        }
     }
 }
