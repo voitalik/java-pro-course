@@ -1,27 +1,29 @@
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.PriorityQueue;
 
 public class Main {
     public static void main(String[] args) {
-        Map<String, String> hm = new HashMap<>();
-        hm.put("B", "1");
-        hm.put("C", "2");
-        hm.put("A", "3");
+//        PriorityQueue<String> priorityQueue = new PriorityQueue<>();
+//        priorityQueue.offer("C");
+//        priorityQueue.offer("A");
+//        priorityQueue.offer("B");
+//
+//        String polledString = priorityQueue.poll();
+//        System.out.println(polledString);
 
-        Map<String, String> lhm = new LinkedHashMap<>();
-        lhm.put("B", "1");
-        lhm.put("C", "2");
-        lhm.put("A", "3");
+//        PriorityQueue<Student> priorityQueue = new PriorityQueue<>();
+//        priorityQueue.offer(new Student("Alex", "M"));
+//        priorityQueue.offer(new Student("Victor", "A"));
+//        priorityQueue.offer(new Student("Joe", "B"));
+//
+//        Student polledStudent = priorityQueue.poll();
+//        System.out.println(polledStudent);
 
-        for (Map.Entry<String, String> entry : hm.entrySet()) {
-            System.out.print(entry.toString() + " | ");
-        }
+        PriorityQueue<Student> priorityQueue = new PriorityQueue<>(new StudentComparator());
+        priorityQueue.offer(new Student("Alex", "M"));
+        priorityQueue.offer(new Student("Victor", "A"));
+        priorityQueue.offer(new Student("Joe", "B"));
 
-        System.out.println();
-
-        for (Map.Entry<String, String> entry : lhm.entrySet()) {
-            System.out.print(entry.toString() + " | ");
-        }
+        Student polledStudent = priorityQueue.poll();
+        System.out.println(polledStudent);
     }
 }
