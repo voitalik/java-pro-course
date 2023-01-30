@@ -1,29 +1,15 @@
-import java.util.PriorityQueue;
+import java.util.Comparator;
+import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) {
-//        PriorityQueue<String> priorityQueue = new PriorityQueue<>();
-//        priorityQueue.offer("C");
-//        priorityQueue.offer("A");
-//        priorityQueue.offer("B");
-//
-//        String polledString = priorityQueue.poll();
-//        System.out.println(polledString);
+        Comparator<Person> personComparator = new PersonAgeComparator()
+                .thenComparing(new PersonNameComparator());
+        TreeSet<Person> people = new TreeSet<>(personComparator);
+        people.add(new Person("Viktor", 20));
+        people.add(new Person("Andrii", 20));
+        people.add(new Person("Oleg", 25));
 
-//        PriorityQueue<Student> priorityQueue = new PriorityQueue<>();
-//        priorityQueue.offer(new Student("Alex", "M"));
-//        priorityQueue.offer(new Student("Victor", "A"));
-//        priorityQueue.offer(new Student("Joe", "B"));
-//
-//        Student polledStudent = priorityQueue.poll();
-//        System.out.println(polledStudent);
-
-        PriorityQueue<Student> priorityQueue = new PriorityQueue<>(new StudentComparator());
-        priorityQueue.offer(new Student("Alex", "M"));
-        priorityQueue.offer(new Student("Victor", "A"));
-        priorityQueue.offer(new Student("Joe", "B"));
-
-        Student polledStudent = priorityQueue.poll();
-        System.out.println(polledStudent);
+        System.out.println(people);
     }
 }
