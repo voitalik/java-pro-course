@@ -1,18 +1,10 @@
-import java.util.List;
+import java.util.function.BiFunction;
 
 public class Main {
     public static void main(String[] args) {
-        animalsVoice(List.of(new Cow(), new Cow()));
-        animalsVoice(List.of(new Animal(), new Animal()));
-    }
-
-    public static void animalsVoice(List<? super Cow> cowsOrParent) {
-        for (Object obj : cowsOrParent) {
-            if (obj instanceof Cow cow) {
-                cow.voice();
-            } else {
-                System.out.println("Чупакрабра якась...");
-            }
-        }
+        BiFunction<Integer, Integer, Double> func = (x, y) -> (double) x / y;
+        System.out.println(
+                func.apply(10, 2)
+        );
     }
 }
